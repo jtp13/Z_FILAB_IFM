@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMC_FLIFM</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>FI LAB. Message Class for IFM</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Exception in Call Function &amp;1: &amp;2 &amp;3</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Route &amp; is not implemented</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Menu &amp; not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Service &amp; not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Check Chart of Accounts and Company Code</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Integrated Currency was not setting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Currency exchange rate not maintained from currency &amp;1 to &amp;2 in &amp;3 &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Exchange rate not maintained</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>IFM Layout was not setting (Go: ZFLIFM_LAYOUT)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>IFM Layout Item &quot;&amp;&quot; is not found in the FSV(Go: ZFLIFM_LAYOUT)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>IFM Setting was not setting (Go: ZFLIFMS)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Please click on the sub menu!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Please click on the sub line!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Only values between 1 and 16 are allowed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>IFM Menu was not setting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Route &amp; was not setting</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

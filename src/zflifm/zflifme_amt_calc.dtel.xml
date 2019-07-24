@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZFLIFME_AMT_CALC</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZFLIFMD_WERTV_CALC</DOMNAME>
+    <HEADLEN>31</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>16</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Amount Calculate</DDTEXT>
+    <REPTEXT>Amount Calculate</REPTEXT>
+    <SCRTEXT_S>Amt Calc</SCRTEXT_S>
+    <SCRTEXT_M>Amount Calculate</SCRTEXT_M>
+    <SCRTEXT_L>Amount Calculate</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
