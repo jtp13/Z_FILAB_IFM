@@ -21,17 +21,13 @@
 *& OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 *& IN THE SOFTWARE.
 *&---------------------------------------------------------------------*
-CLASS zcl_flifm_process_bspl DEFINITION
-  PUBLIC
-  INHERITING FROM zcl_flifm_process
-  ABSTRACT
-  CREATE PUBLIC .
+class ZCL_FLIFM_PROCESS_BSPL definition
+  public
+  inheriting from ZCL_FLIFM_PROCESS
+  abstract
+  create public .
 
-  PUBLIC SECTION.
-
-    METHODS add_net_profit_lines
-        REDEFINITION .
-  PROTECTED SECTION.
+public section.
 
     TYPES:
       BEGIN OF tys_rp_cysp_fields,
@@ -330,10 +326,14 @@ CLASS zcl_flifm_process_bspl DEFINITION
     TYPES:
       tyt_cy_rp_ry_np_popup TYPE STANDARD TABLE OF tys_cy_rp_ry_np_popup WITH DEFAULT KEY .
 
-    CONSTANTS mc_rp_cysp_tabname TYPE tabname VALUE 'ZFLIFMS_RP_CYSP' ##NO_TEXT.
-    CONSTANTS mc_try_tcy_tabname TYPE tabname VALUE 'ZFLIFMS_TRY_TCY' ##NO_TEXT.
-    CONSTANTS mc_trend_tabname TYPE tabname VALUE 'ZFLIFMS_TREND' ##NO_TEXT.
-    CONSTANTS mc_cy_rp_ry_tabname TYPE tabname VALUE 'ZFLIFMS_BS_TCY_RP_TRY' ##NO_TEXT.
+  methods ZIF_FLIFM_PROCESS~ADD_NET_PROFIT_LINES
+    redefinition .
+protected section.
+
+  constants MC_RP_CYSP_TABNAME type TABNAME value 'ZFLIFMS_RP_CYSP' ##NO_TEXT.
+  constants MC_TRY_TCY_TABNAME type TABNAME value 'ZFLIFMS_TRY_TCY' ##NO_TEXT.
+  constants MC_TREND_TABNAME type TABNAME value 'ZFLIFMS_TREND' ##NO_TEXT.
+  constants MC_CY_RP_RY_TABNAME type TABNAME value 'ZFLIFMS_BS_TCY_RP_TRY' ##NO_TEXT.
   PRIVATE SECTION.
 ENDCLASS.
 

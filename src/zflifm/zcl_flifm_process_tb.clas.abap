@@ -28,14 +28,6 @@ class ZCL_FLIFM_PROCESS_TB definition
 
 public section.
 
-  methods BUILD_DATA
-    redefinition .
-  methods SET_TOP_LINE_COLOR
-    redefinition .
-  methods ZIF_FLIFM_PROCESS~ADD_NOT_ASSIGNED_LINES
-    redefinition .
-protected section.
-  PRIVATE SECTION.
 
     TYPES:
       BEGIN OF tys_tb_ttb_fields,
@@ -169,6 +161,17 @@ protected section.
     TYPES:
       tyt_tb_rptb_display TYPE STANDARD TABLE OF tys_tb_rptb_display WITH DEFAULT KEY .
 
+  methods BUILD_DATA
+    redefinition .
+  methods SET_TOP_LINE_COLOR
+    redefinition .
+  methods ZIF_FLIFM_PROCESS~ADD_NOT_ASSIGNED_LINES
+    redefinition .
+  methods CREATE_DATA
+    redefinition .
+protected section.
+  PRIVATE SECTION.
+
     CONSTANTS mc_tb_ttb_tabname TYPE tabname VALUE 'ZFLIFMS_TB_TTB' ##NO_TEXT.
     CONSTANTS mc_tb_trend_tabname TYPE tabname VALUE 'ZFLIFMS_TREND' ##NO_TEXT.
     CONSTANTS mc_tb_rptb_tabname TYPE tabname VALUE 'ZFLIFMS_TB_RPTB' ##NO_TEXT.
@@ -197,6 +200,15 @@ CLASS ZCL_FLIFM_PROCESS_TB IMPLEMENTATION.
 
   METHOD build_data.
 
+    create_data( ).
+
+    build_fsv_data( mo_fetch->get_ifm_node_tab_tb( ) ).
+    build_total_data( ).
+
+  ENDMETHOD.
+
+
+  method CREATE_DATA.
 
     DATA: lt_gl_tot TYPE zcl_flifm_fetch=>tyt_gl_tot,
           lr_bukrs  TYPE RANGE OF t001-bukrs.
@@ -252,11 +264,7 @@ CLASS ZCL_FLIFM_PROCESS_TB IMPLEMENTATION.
       WHEN OTHERS.
     ENDCASE.
 
-    build_fsv_data( mo_fetch->get_ifm_node_tab_tb( ) ).
-    build_total_data( ).
-
-
-  ENDMETHOD.
+  endmethod.
 
 
   METHOD set_top_line_color.

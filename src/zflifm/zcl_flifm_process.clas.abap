@@ -62,6 +62,10 @@ public section.
   abstract
     raising
       ZCX_FLIFM_EXCEPTION .
+  methods CREATE_DATA
+  abstract
+    raising
+      ZCX_FLIFM_EXCEPTION .
   methods SET_TOP_LINE_COLOR
   abstract
     importing
@@ -512,8 +516,6 @@ CLASS ZCL_FLIFM_PROCESS IMPLEMENTATION.
     add_not_assigned_lines( it_fields = lt_fields ir_hkont = lr_hkont ).
 
 *// Setting top line color
-*    READ TABLE <lt_fsv> ASSIGNING <ls_data> INDEX 1.
-*    set_top_line_color( <ls_data> ).
     READ TABLE <lt_fsv> ASSIGNING <ls_fsv> INDEX 1.
     set_top_line_color( <ls_fsv> ).
 
@@ -1039,8 +1041,33 @@ CLASS ZCL_FLIFM_PROCESS IMPLEMENTATION.
   ENDMETHOD.
 
 
-  method GET_FSV_AMT_DATA.
-  endmethod.
+  METHOD get_fsv_amt_data.
+
+    create_data( ).
+
+    DATA lv_menu TYPE zif_flifm_definitions=>ty_flifm_menu_type.
+    DATA lt_node_tab TYPE zif_flifm_definitions=>tyt_node_tab.
+
+    lv_menu = zcl_flifm_utils=>split_menu( iv_menu = mv_menu ).
+
+    CASE lv_menu.
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-bs.
+        lt_node_tab = mo_fetch->get_ifm_node_tab_bs( ).
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl.
+        lt_node_tab = mo_fetch->get_ifm_node_tab_pl( ).
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-tb.
+        lt_node_tab = mo_fetch->get_ifm_node_tab_tb( ).
+      WHEN OTHERS.
+
+    ENDCASE.
+
+    build_fsv_amt_data(
+      EXPORTING
+        it_node_tab = lt_node_tab
+      IMPORTING
+        et_table = et_table ).
+
+  ENDMETHOD.
 
 
   METHOD get_select_company.

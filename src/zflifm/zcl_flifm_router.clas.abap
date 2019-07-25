@@ -34,11 +34,6 @@ CLASS zcl_flifm_router DEFINITION
   PROTECTED SECTION.
 private section.
 
-  methods _GUI_FSV_ALV_TREE
-    importing
-      !IS_ROUTE_DATA type ZIF_FLIFM_DEFINITIONS=>TYS_ROUTE_DATA
-    raising
-      ZCX_FLIFM_EXCEPTION .
   methods _ROUTES
     importing
       !IS_ROUTE_DATA type ZIF_FLIFM_DEFINITIONS=>TYS_ROUTE_DATA
@@ -139,43 +134,6 @@ CLASS ZCL_FLIFM_ROUTER IMPLEMENTATION.
       WHEN OTHERS.
         zcx_flifm_exception=>raise_t100( iv_msgno = 004 iv_msgv1 = |{ is_route_data-action }| ).
     ENDCASE.
-
-  ENDMETHOD.
-
-
-  METHOD _gui_fsv_alv_tree.
-
-    DATA: lo_splitter_container TYPE REF TO cl_gui_splitter_container.
-
-    lo_splitter_container ?= is_route_data-parent.
-
-*    zcl_flifm_gui_fsv_alv_tree=>get_instance( lo_splitter_container )->render( iv_menu    = is_route_data-menu
-*                                                                               iv_company = is_route_data-company
-*                                                                               iv_action  = is_route_data-action ).
-
-    DATA lo_object TYPE REF TO object.
-
-    DATA lv_object_name TYPE seoclsname.
-
-    CONCATENATE 'ZCL_FLIFM' is_route_data-route INTO lv_object_name SEPARATED BY '_'.
-
-    TRANSLATE lv_object_name TO UPPER CASE.
-
-    TRY.
-        CALL METHOD (lv_object_name)=>get_instance
-          EXPORTING
-            io_parent   = lo_splitter_container
-          RECEIVING
-            ro_alv_tree = lo_object.
-      CATCH cx_sy_dyn_call_illegal_class.
-        zcx_flifm_exception=>raise_msg( |Create object exception { lv_object_name }| ).
-    ENDTRY.
-
-    CALL METHOD lo_object->('RENDER')
-      EXPORTING
-        iv_menu    = is_route_data-menu
-        iv_company = is_route_data-company
-        iv_action  = is_route_data-action.
 
   ENDMETHOD.
 

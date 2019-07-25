@@ -92,6 +92,7 @@ CLASS ZCL_FLIFM_UTILS IMPLEMENTATION.
 
     SPLIT iv_menu AT zif_flifm_definitions=>c_underscore INTO TABLE lt_menu.
 
+" Clean Code: Split method instead of Boolean input parameter
     IF iv_sub IS INITIAL.
       READ TABLE lt_menu INTO rv_menu INDEX 1.
     ELSE.

@@ -21,7 +21,6 @@
 *& OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 *& IN THE SOFTWARE.
 *&---------------------------------------------------------------------*
-
 class ZCL_FLIFM_GUI_FSV_ALV_TREE definition
   public
   create public .
@@ -139,8 +138,7 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD render.
-
+  METHOD zif_flifm_gui~render.
 
     DATA: lt_exp TYPE lvc_t_nkey.
 
@@ -168,7 +166,6 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
     _register_events( ).
 
     _update_tree( lt_exp ).
-
 
   ENDMETHOD.
 

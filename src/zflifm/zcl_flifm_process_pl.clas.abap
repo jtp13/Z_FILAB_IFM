@@ -21,20 +21,22 @@
 *& OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 *& IN THE SOFTWARE.
 *&---------------------------------------------------------------------*
-CLASS zcl_flifm_process_pl DEFINITION
-  PUBLIC
-  INHERITING FROM zcl_flifm_process_bspl
-  CREATE PUBLIC .
+class ZCL_FLIFM_PROCESS_PL definition
+  public
+  inheriting from ZCL_FLIFM_PROCESS_BSPL
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    METHODS build_data
-        REDEFINITION .
-    METHODS calc_ratio_rate
-        REDEFINITION .
-    METHODS set_top_line_color
-        REDEFINITION .
-  PROTECTED SECTION.
+  methods BUILD_DATA
+    redefinition .
+  methods SET_TOP_LINE_COLOR
+    redefinition .
+  methods ZIF_FLIFM_PROCESS~CALC_RATIO_RATE
+    redefinition .
+  methods CREATE_DATA
+    redefinition .
+protected section.
   PRIVATE SECTION.
 
     METHODS _build_pl_rp_cysp_data
@@ -61,71 +63,7 @@ CLASS ZCL_FLIFM_PROCESS_PL IMPLEMENTATION.
 
   METHOD build_data.
 
-
-    DATA: lt_gl_tot TYPE zcl_flifm_fetch=>tyt_gl_tot,
-          lr_bukrs  TYPE RANGE OF t001-bukrs.
-
-    DATA: lv_type_name TYPE string.
-
-    DATA: lx_error TYPE REF TO cx_sy_create_data_error.
-
-    DATA: lv_msg TYPE string.
-
-    TRY.
-
-        DATA: lv_sub_menu TYPE zif_flifm_definitions=>ty_flifm_menu_type.
-
-        lv_sub_menu = zcl_flifm_utils=>split_menu( iv_menu = mv_menu
-                                                     iv_sub = abap_true ).
-
-        CONCATENATE 'TYT_' lv_sub_menu INTO lv_type_name.
-        CREATE DATA gr_data TYPE (lv_type_name).
-
-        CLEAR lv_type_name.
-        CONCATENATE 'TYT_' lv_sub_menu '_FSV' INTO lv_type_name.
-        CREATE DATA gr_data_fsv        TYPE (lv_type_name).
-        CREATE DATA gr_data_np_fsv     TYPE (lv_type_name).
-        CREATE DATA gr_data_np_ytd_fsv TYPE (lv_type_name).
-
-        CLEAR lv_type_name.
-        CONCATENATE 'TYT_' lv_sub_menu '_DISPLAY' INTO lv_type_name.
-        CREATE DATA gr_data_display      TYPE (lv_type_name).
-        CREATE DATA gr_data_display_line TYPE LINE OF (lv_type_name).
-
-        CLEAR lv_type_name.
-        CONCATENATE 'TYT_' lv_sub_menu '_NP' INTO lv_type_name.
-        CREATE DATA gr_data_np     TYPE (lv_type_name).
-        CREATE DATA gr_data_np_ytd TYPE (lv_type_name).
-
-      CATCH cx_sy_create_data_error INTO lx_error.
-        lv_msg = lx_error->get_text( ).
-        zcx_flifm_exception=>raise_msg( lv_msg ).
-    ENDTRY.
-
-    lt_gl_tot = mo_fetch->get_gl_tot( ).
-
-    CASE mv_menu.
-      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_rp_cysp.
-
-        _build_pl_rp_cysp_data( lt_gl_tot ).
-
-        gv_strname = mc_rp_cysp_tabname.
-
-      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_try_tcy.
-
-        _build_pl_try_tcy_data( lt_gl_tot ).
-
-        gv_strname = mc_try_tcy_tabname.
-
-      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_ry_trend OR
-           zif_flifm_definitions=>c_flifm_menu_type-pl_cy_trend.
-
-        _build_pl_trend_data( lt_gl_tot ).
-
-        gv_strname = mc_trend_tabname.
-
-      WHEN OTHERS.
-    ENDCASE.
+    create_data( ).
 
     build_fsv_data( mo_fetch->get_ifm_node_tab_pl( ) ).
     "If you want to display total in the PL Menu, delete comment
@@ -254,6 +192,76 @@ CLASS ZCL_FLIFM_PROCESS_PL IMPLEMENTATION.
 
 
   ENDMETHOD.
+
+
+  method CREATE_DATA.
+
+    DATA: lt_gl_tot TYPE zcl_flifm_fetch=>tyt_gl_tot,
+          lr_bukrs  TYPE RANGE OF t001-bukrs.
+
+    DATA: lv_type_name TYPE string.
+
+    DATA: lx_error TYPE REF TO cx_sy_create_data_error.
+
+    DATA: lv_msg TYPE string.
+
+    TRY.
+
+        DATA: lv_sub_menu TYPE zif_flifm_definitions=>ty_flifm_menu_type.
+
+        lv_sub_menu = zcl_flifm_utils=>split_menu( iv_menu = mv_menu
+                                                     iv_sub = abap_true ).
+
+        CONCATENATE 'TYT_' lv_sub_menu INTO lv_type_name.
+        CREATE DATA gr_data TYPE (lv_type_name).
+
+        CLEAR lv_type_name.
+        CONCATENATE 'TYT_' lv_sub_menu '_FSV' INTO lv_type_name.
+        CREATE DATA gr_data_fsv        TYPE (lv_type_name).
+        CREATE DATA gr_data_np_fsv     TYPE (lv_type_name).
+        CREATE DATA gr_data_np_ytd_fsv TYPE (lv_type_name).
+
+        CLEAR lv_type_name.
+        CONCATENATE 'TYT_' lv_sub_menu '_DISPLAY' INTO lv_type_name.
+        CREATE DATA gr_data_display      TYPE (lv_type_name).
+        CREATE DATA gr_data_display_line TYPE LINE OF (lv_type_name).
+
+        CLEAR lv_type_name.
+        CONCATENATE 'TYT_' lv_sub_menu '_NP' INTO lv_type_name.
+        CREATE DATA gr_data_np     TYPE (lv_type_name).
+        CREATE DATA gr_data_np_ytd TYPE (lv_type_name).
+
+      CATCH cx_sy_create_data_error INTO lx_error.
+        lv_msg = lx_error->get_text( ).
+        zcx_flifm_exception=>raise_msg( lv_msg ).
+    ENDTRY.
+
+    lt_gl_tot = mo_fetch->get_gl_tot( ).
+
+    CASE mv_menu.
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_rp_cysp.
+
+        _build_pl_rp_cysp_data( lt_gl_tot ).
+
+        gv_strname = mc_rp_cysp_tabname.
+
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_try_tcy.
+
+        _build_pl_try_tcy_data( lt_gl_tot ).
+
+        gv_strname = mc_try_tcy_tabname.
+
+      WHEN zif_flifm_definitions=>c_flifm_menu_type-pl_ry_trend OR
+           zif_flifm_definitions=>c_flifm_menu_type-pl_cy_trend.
+
+        _build_pl_trend_data( lt_gl_tot ).
+
+        gv_strname = mc_trend_tabname.
+
+      WHEN OTHERS.
+    ENDCASE.
+
+  endmethod.
 
 
   METHOD set_top_line_color.
