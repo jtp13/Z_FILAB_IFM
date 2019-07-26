@@ -1,6 +1,6 @@
 ## IFM Setting - T-CODE: ZFLIFMS
 
-![IFM Setting](https://github.com/beyondnk/Z_FILAB_IFM/blob/master/docs/IFM_Setting.PNG)
+![IFM Setting](https://github.com/open-fi-lab/Z_FILAB_IFM/blob/master/docs/IFM_Setting.PNG)
 
 
 1. COA Setting: Enter COA that is the basis for FSV you are using.
