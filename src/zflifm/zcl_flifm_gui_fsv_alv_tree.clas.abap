@@ -39,7 +39,7 @@ public section.
     importing
       !IO_PARENT type ref to CL_GUI_SPLITTER_CONTAINER
     returning
-      value(RO_ALV_TREE) type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
+      value(RO_GUI) type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
   PROTECTED SECTION.
 private section.
 
@@ -132,7 +132,7 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
           io_parent = io_parent.
     ENDIF.
 
-    ro_alv_tree = go_alv_tree.
+    ro_gui = go_alv_tree.
 
 
   ENDMETHOD.

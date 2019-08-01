@@ -157,7 +157,7 @@ CLASS ZCL_FLIFM_ROUTER IMPLEMENTATION.
           EXPORTING
             io_parent   = lo_splitter_container
           RECEIVING
-            ro_alv_tree = lo_object.
+            ro_gui = lo_object.
       CATCH cx_sy_dyn_call_illegal_class.
         zcx_flifm_exception=>raise_t100( iv_msgno = 002 iv_msgv1 = |'{ is_route_data-route }'| ).
     ENDTRY.
