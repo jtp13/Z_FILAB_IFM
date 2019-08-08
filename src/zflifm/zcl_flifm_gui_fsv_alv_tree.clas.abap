@@ -23,37 +23,17 @@
 *&---------------------------------------------------------------------*
 class ZCL_FLIFM_GUI_FSV_ALV_TREE definition
   public
+  inheriting from ZCL_FLIFM_GUI
   create public .
 
 public section.
 
-  interfaces ZIF_FLIFM_GUI .
-
-  aliases RENDER
-    for ZIF_FLIFM_GUI~RENDER .
-
-  methods CONSTRUCTOR
-    importing
-      !IO_PARENT type ref to CL_GUI_SPLITTER_CONTAINER .
-  class-methods GET_INSTANCE
-    importing
-      !IO_PARENT type ref to CL_GUI_SPLITTER_CONTAINER
-    returning
-      value(RO_GUI) type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
-  PROTECTED SECTION.
+  methods ZIF_FLIFM_GUI~RENDER
+    redefinition .
+protected section.
 private section.
 
-  aliases MO_FETCH
-    for ZIF_FLIFM_GUI~MO_FETCH .
-  aliases MO_PROCESS
-    for ZIF_FLIFM_GUI~MO_PROCESS .
-  aliases MO_SPLITTER_RIGHT
-    for ZIF_FLIFM_GUI~MO_SPLITTER_RIGHT .
-  aliases MS_ROUTE_DATA
-    for ZIF_FLIFM_GUI~MS_ROUTE_DATA .
-
-  class-data GO_ALV_TREE type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
-  data MO_ALV_TREE type ref to CL_GUI_ALV_TREE .
+  class-data MO_FSV_ALV_TREE type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
   data MT_LIST_COMMENTARY type SLIS_T_LISTHEADER .
 
   methods _INITIALIZE_ALV_TREE
@@ -112,35 +92,11 @@ ENDCLASS.
 CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
 
 
-  METHOD constructor.
-
-
-    mo_fetch = zcl_flifm_fetch=>get_instance( ).
-
-    mo_splitter_right = io_parent.
-
-
-  ENDMETHOD.
-
-
-  METHOD get_instance.
-
-
-    IF go_alv_tree IS NOT BOUND.
-      CREATE OBJECT go_alv_tree TYPE zcl_flifm_gui_fsv_alv_tree
-        EXPORTING
-          io_parent = io_parent.
-    ENDIF.
-
-    ro_gui = go_alv_tree.
-
-
-  ENDMETHOD.
-
-
   METHOD zif_flifm_gui~render.
 
     DATA: lt_exp TYPE lvc_t_nkey.
+
+    zif_flifm_gui~clean_up( ).
 
     CLEAR ms_route_data.
     ms_route_data-menu    = iv_menu.
@@ -397,14 +353,6 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
 
   METHOD _create_alv_tree.
 
-
-    DATA: lv_error TYPE string.
-
-    IF mo_alv_tree IS BOUND.
-      mo_alv_tree->free( ).
-      CLEAR mo_alv_tree.
-    ENDIF.
-
 *// Create tree control
     CREATE OBJECT mo_alv_tree
       EXPORTING
@@ -425,7 +373,6 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
     IF sy-subrc <> 0.
       zcx_flifm_exception=>raise_sy_msg( ).
     ENDIF.
-
 
   ENDMETHOD.
 
@@ -532,7 +479,7 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
     lt_fcat = _create_fieldcat( ).
 
     ls_disvariant-report   = sy-repid.
-    ls_disvariant-handle   = 'IFMT'.
+    ls_disvariant-handle   = 'IFM'.
     ls_disvariant-username = sy-uname.
 
     mo_alv_tree->set_table_for_first_display(

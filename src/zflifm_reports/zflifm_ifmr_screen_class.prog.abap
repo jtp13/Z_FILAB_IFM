@@ -112,7 +112,6 @@ CLASS zcl_flifm_screen IMPLEMENTATION.
       CATCH zcx_flifm_exception INTO lx_exception.
         ms_main_data-re_render = abap_false.
         MESSAGE lx_exception TYPE 'S' DISPLAY LIKE 'E'.
-*        SET SCREEN 0. LEAVE SCREEN.
     ENDTRY.
 
   ENDMETHOD.

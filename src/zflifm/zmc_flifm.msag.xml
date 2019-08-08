@@ -110,6 +110,12 @@
      <MSGNR>016</MSGNR>
      <TEXT>Route &amp; was not setting</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_FLIFM</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>OFS Layout was not setting (Go: ZFLOFS_LAYOUT)</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

@@ -1149,19 +1149,10 @@ CLASS ZCL_FLIFM_PROCESS IMPLEMENTATION.
 
   METHOD move_sign_front.
 
-    DATA: lv_calc TYPE zif_flifm_definitions=>ty_amt_calc.
-
-    IF iv_waers IS NOT INITIAL.
-
-      lv_calc = cv_data.
-
-      IF lv_calc IS NOT INITIAL.
-        lv_calc = lv_calc / 1000000.
-      ENDIF.
-
-      WRITE lv_calc TO cv_data CURRENCY iv_waers.
-
-    ENDIF.
+    zcl_flifm_utils=>move_number_to_char( EXPORTING
+                                            iv_waers = iv_waers
+                                          CHANGING
+                                            cv_data = cv_data ).
 
     CALL FUNCTION 'CLOI_PUT_SIGN_IN_FRONT'
       CHANGING
@@ -1297,7 +1288,7 @@ CLASS ZCL_FLIFM_PROCESS IMPLEMENTATION.
     DO lv_tlevel TIMES.
 *-> `  `: no-break space / Dec: 160 / Hex: 0xA0
 *-- You can input Alt + 255
-      CONCATENATE `  ` <lv_text> INTO <lv_text>.
+      CONCATENATE zif_flifm_definitions=>c_no_break_space <lv_text> INTO <lv_text>.
     ENDDO.
 
     APPEND <ls_popup_data> TO <lt_popup_data>.

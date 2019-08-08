@@ -44,11 +44,6 @@ private section.
       !IS_ROUTE_DATA type ZIF_FLIFM_DEFINITIONS=>TYS_ROUTE_DATA
     raising
       ZCX_FLIFM_EXCEPTION .
-  methods _EXTEND
-    importing
-      !IS_ROUTE_DATA type ZIF_FLIFM_DEFINITIONS=>TYS_ROUTE_DATA
-    raising
-      ZCX_FLIFM_EXCEPTION .
 ENDCLASS.
 
 
@@ -91,39 +86,6 @@ CLASS ZCL_FLIFM_ROUTER IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD _extend.
-
-    DATA lo_object TYPE REF TO object.
-
-    DATA lv_object_name TYPE seoclsname.
-
-    DATA lo_splitter_container TYPE REF TO cl_gui_splitter_container.
-
-    lo_splitter_container ?= is_route_data-parent.
-
-    CONCATENATE 'ZCL_FLIFM' is_route_data-route INTO lv_object_name SEPARATED BY '_'.
-
-    TRANSLATE lv_object_name TO UPPER CASE.
-
-    TRY.
-        CALL METHOD (lv_object_name)=>get_instance
-          EXPORTING
-            io_parent   = lo_splitter_container
-          RECEIVING
-            ro_alv_tree = lo_object.
-      CATCH cx_sy_dyn_call_illegal_class.
-        zcx_flifm_exception=>raise_msg( |Create object exception { lv_object_name }| ).
-    ENDTRY.
-
-    CALL METHOD lo_object->('RENDER')
-      EXPORTING
-        iv_menu    = is_route_data-menu
-        iv_company = is_route_data-company
-        iv_action  = is_route_data-action.
-
-  ENDMETHOD.
-
-
   METHOD _filab_service.
 
     CASE is_route_data-action.
@@ -140,33 +102,11 @@ CLASS ZCL_FLIFM_ROUTER IMPLEMENTATION.
 
   METHOD _routes.
 
-    DATA lo_object TYPE REF TO object.
-
-    DATA lv_object_name TYPE seoclsname.
-
-    DATA: lo_splitter_container TYPE REF TO cl_gui_splitter_container.
-
-    lo_splitter_container ?= is_route_data-parent.
-
-    CONCATENATE 'ZCL_FLIFM' is_route_data-route INTO lv_object_name SEPARATED BY '_'.
-
-    TRANSLATE lv_object_name TO UPPER CASE.
-
-    TRY.
-        CALL METHOD (lv_object_name)=>get_instance
-          EXPORTING
-            io_parent   = lo_splitter_container
-          RECEIVING
-            ro_gui = lo_object.
-      CATCH cx_sy_dyn_call_illegal_class.
-        zcx_flifm_exception=>raise_t100( iv_msgno = 002 iv_msgv1 = |'{ is_route_data-route }'| ).
-    ENDTRY.
-
-    CALL METHOD lo_object->('RENDER')
-      EXPORTING
-        iv_menu    = is_route_data-menu
-        iv_company = is_route_data-company
-        iv_action  = is_route_data-action.
+    zcl_flifm_gui=>get_gui( EXPORTING
+                              iv_route = is_route_data-route
+                              io_parent = is_route_data-parent )->render( iv_menu    = is_route_data-menu
+                                                                          iv_company = is_route_data-company
+                                                                          iv_action  = is_route_data-action ).
 
   ENDMETHOD.
 ENDCLASS.

@@ -309,25 +309,29 @@ CLASS zcl_flifm_main IMPLEMENTATION.
   METHOD _create_container_right.
 
 
+*    IF mo_docking_container_right IS BOUND.
+*      mo_docking_container_right->free( ).
+*      CLEAR mo_docking_container_right.
+*    ENDIF.
     IF mo_docking_container_right IS NOT BOUND.
 
 *// Right Tree ALV
-      CREATE OBJECT mo_docking_container_right
-        EXPORTING
-          dynnr     = sy-dynnr
-          repid     = sy-repid
-          side      = mo_docking_container_right->dock_at_left
-          style     = cl_gui_control=>ws_child
-          extension = 3000.
+    CREATE OBJECT mo_docking_container_right
+      EXPORTING
+        dynnr     = sy-dynnr
+        repid     = sy-repid
+        side      = mo_docking_container_right->dock_at_left
+        style     = cl_gui_control=>ws_child
+        extension = 3000.
 
-      CREATE OBJECT mo_splitter_right
-        EXPORTING
-          parent  = mo_docking_container_right
-          rows    = 1
-          columns = 1.
+    CREATE OBJECT mo_splitter_right
+      EXPORTING
+        parent  = mo_docking_container_right
+        rows    = 1
+        columns = 1.
 
-      mo_splitter_right->set_border( border = cl_gui_cfw=>false ).
-      mo_splitter_right->set_column_mode( mode = mo_splitter_right->mode_absolute ).
+    mo_splitter_right->set_border( border = cl_gui_cfw=>false ).
+    mo_splitter_right->set_column_mode( mode = mo_splitter_right->mode_absolute ).
 
     ENDIF.
 

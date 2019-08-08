@@ -43,6 +43,18 @@ public section.
       !IV_SUB type ABAP_BOOL optional
     returning
       value(RV_MENU) type ZIF_FLIFM_DEFINITIONS=>TY_FLIFM_MENU_TYPE .
+  class-methods GET_FIELDCATALOG
+    importing
+      !IT_TABLE type ANY TABLE
+    returning
+      value(RT_FCAT) type LVC_T_FCAT
+    raising
+      ZCX_FLIFM_EXCEPTION .
+  class-methods MOVE_NUMBER_TO_CHAR
+    importing
+      !IV_WAERS type WAERS
+    changing
+      !CV_DATA type CLIKE .
 protected section.
 private section.
 ENDCLASS.
@@ -50,6 +62,42 @@ ENDCLASS.
 
 
 CLASS ZCL_FLIFM_UTILS IMPLEMENTATION.
+
+
+  METHOD get_fieldcatalog.
+
+    DATA: lo_columns      TYPE REF TO cl_salv_columns_table,
+          lo_aggregations TYPE REF TO cl_salv_aggregations,
+          lo_salv_table   TYPE REF TO cl_salv_table,
+          lr_table        TYPE REF TO data,
+          lx_cx           TYPE REF TO cx_root.
+
+    FIELD-SYMBOLS: <table> TYPE STANDARD TABLE.
+
+    CREATE DATA lr_table LIKE it_table.
+    ASSIGN lr_table->* TO <table>.
+
+    TRY.
+        cl_salv_table=>factory(
+          EXPORTING
+            list_display = abap_false
+          IMPORTING
+            r_salv_table = lo_salv_table
+          CHANGING
+            t_table      = <table> ).
+      CATCH cx_salv_msg cx_salv_not_found cx_salv_data_error INTO lx_cx.
+        zcx_flifm_exception=>raise_msg( lx_cx->get_text( ) ).
+    ENDTRY.
+
+    lo_columns  = lo_salv_table->get_columns( ).
+    lo_aggregations = lo_salv_table->get_aggregations( ).
+
+    rt_fcat = cl_salv_controller_metadata=>get_lvc_fieldcatalog( r_columns = lo_columns
+                                                                 r_aggregations = lo_aggregations ).
+
+    DELETE rt_fcat WHERE rollname = 'MANDT'.
+
+  ENDMETHOD.
 
 
   method GET_FIELDINFO.
@@ -76,6 +124,25 @@ CLASS ZCL_FLIFM_UTILS IMPLEMENTATION.
 
 
   endmethod.
+
+
+  METHOD MOVE_NUMBER_TO_CHAR.
+
+    DATA: lv_calc TYPE zif_flifm_definitions=>ty_amt_calc.
+
+    IF iv_waers IS NOT INITIAL.
+
+      lv_calc = cv_data.
+
+      IF lv_calc IS NOT INITIAL.
+        lv_calc = lv_calc / 1000000.
+      ENDIF.
+
+      WRITE lv_calc TO cv_data CURRENCY iv_waers.
+
+    ENDIF.
+
+  ENDMETHOD.
 
 
   METHOD split_menu.

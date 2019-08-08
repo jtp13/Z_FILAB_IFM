@@ -3,6 +3,7 @@ INTERFACE zif_flifm_definitions
 
 
   TYPES ty_i18n TYPE itex132 .
+  TYPES ty_formula TYPE zflifme_formula.
   TYPES ty_amt_calc TYPE zflifme_amt_calc .
   TYPES:
     ty_per_calc    TYPE p LENGTH 10 DECIMALS 2 .
@@ -101,23 +102,27 @@ INTERFACE zif_flifm_definitions
     END OF tys_route_data .
   TYPES ty_row_color TYPE char4 .
 
+  CONSTANTS c_flifm_class_name TYPE string VALUE 'ZCL_FLIFM'.
   CONSTANTS c_default_langu TYPE spras VALUE 'E'.
   CONSTANTS c_slash TYPE c VALUE '/' ##NO_TEXT.
   CONSTANTS c_hyphen TYPE c VALUE '-' ##NO_TEXT.
   CONSTANTS c_underscore TYPE c VALUE '_'.
   CONSTANTS:
     c_arrow  TYPE c LENGTH 2 VALUE '->' ##NO_TEXT.
+*-> `  `: no-break space / Dec: 160 / Hex: 0xA0
+*-- You can input Alt + 255
+  CONSTANTS: c_no_break_space TYPE c LENGTH 2 VALUE `  `.
   CONSTANTS:
     BEGIN OF c_flifm_menu,
-      m000001  TYPE ty_flifm_menu_type VALUE 'TB',
-      m000002  TYPE ty_flifm_menu_type VALUE 'TB_TTB',
-      m000003  TYPE ty_flifm_menu_type VALUE 'TB_TREND',
-      m000004  TYPE ty_flifm_menu_type VALUE 'TB_RPTB',
-      m000005  TYPE ty_flifm_menu_type VALUE 'PL',
-      m000006  TYPE ty_flifm_menu_type VALUE 'PL_RP_CYSP',
-      m000007  TYPE ty_flifm_menu_type VALUE 'PL_TRY_TCY',
-      m000008  TYPE ty_flifm_menu_type VALUE 'PL_RY_TREND',
-      m000009  TYPE ty_flifm_menu_type VALUE 'PL_CY_TREND',
+      m000001 TYPE ty_flifm_menu_type VALUE 'TB',
+      m000002 TYPE ty_flifm_menu_type VALUE 'TB_TTB',
+      m000003 TYPE ty_flifm_menu_type VALUE 'TB_TREND',
+      m000004 TYPE ty_flifm_menu_type VALUE 'TB_RPTB',
+      m000005 TYPE ty_flifm_menu_type VALUE 'PL',
+      m000006 TYPE ty_flifm_menu_type VALUE 'PL_RP_CYSP',
+      m000007 TYPE ty_flifm_menu_type VALUE 'PL_TRY_TCY',
+      m000008 TYPE ty_flifm_menu_type VALUE 'PL_RY_TREND',
+      m000009 TYPE ty_flifm_menu_type VALUE 'PL_CY_TREND',
       m000010 TYPE ty_flifm_menu_type VALUE 'BS',
       m000011 TYPE ty_flifm_menu_type VALUE 'BS_CY_RP_RY',
       m000012 TYPE ty_flifm_menu_type VALUE 'BS_TRY_TCY',
@@ -145,9 +150,9 @@ INTERFACE zif_flifm_definitions
     END OF c_flifm_menu_type .
   CONSTANTS:
     BEGIN OF c_menu_routes,
-      tb  TYPE ty_route VALUE 'gui_fsv_alv_tree',
-      pl  TYPE ty_route VALUE 'gui_fsv_alv_tree',
-      bs  TYPE ty_route VALUE 'gui_fsv_alv_tree',
+      tb TYPE ty_route VALUE 'gui_fsv_alv_tree',
+      pl TYPE ty_route VALUE 'gui_fsv_alv_tree',
+      bs TYPE ty_route VALUE 'gui_fsv_alv_tree',
     END OF c_menu_routes.
   CONSTANTS:
     BEGIN OF c_node_type,
