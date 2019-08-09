@@ -232,11 +232,7 @@ CLASS ZCL_FLIFM_FETCH IMPLEMENTATION.
 
     zcl_flifm_progress=>show( iv_text = |Select data...| ).
 
-*    IF zcl_flifm_selection=>get_parallel( ) EQ abap_true.
-*      fetch_data_parallel( mc_group ).
-*    ELSE.
     fetch_data_single( ).
-*    ENDIF.
 
     SORT mt_gl_tot BY gjahr monat bukrs waers hkont.
 

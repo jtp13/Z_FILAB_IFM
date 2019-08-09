@@ -18,7 +18,9 @@ public section.
       !IV_ROUTE type ZIF_FLIFM_DEFINITIONS=>TY_ROUTE
       !IO_PARENT type ref to CL_GUI_CONTAINER
     returning
-      value(RO_GUI) type ref to ZCL_FLIFM_GUI .
+      value(RO_GUI) type ref to ZCL_FLIFM_GUI
+    raising
+      ZCX_FLIFM_EXCEPTION .
 protected section.
 
   aliases MO_ALV_GRID
@@ -85,7 +87,7 @@ CLASS ZCL_FLIFM_GUI IMPLEMENTATION.
               iv_route = iv_route
               io_parent = lo_splitter_container.
 
-        CATCH cx_sy_dyn_call_illegal_class.
+        CATCH cx_sy_create_object_error.
           zcx_flifm_exception=>raise_t100( iv_msgno = 002 iv_msgv1 = |'{ iv_route }'| ).
       ENDTRY.
 
