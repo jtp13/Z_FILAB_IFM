@@ -37,7 +37,7 @@ Unfortunately... I'm not good at English. So I got help from Google Translator. 
 
 # - 한국어 -
 
-## 통합재무제표(Integrated Finance Management)
+## 통합재무관리(Integrated Finance Management)
 
 SAP FI 모듈을 사용하는 회사에서 시산표, 손익계산서, 대차대조표 등 12개 현황을 한 리포트에서 실행 할 수 있습니다.
 
