@@ -21,70 +21,70 @@
 *& OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 *& IN THE SOFTWARE.
 *&---------------------------------------------------------------------*
-class ZCL_FLIFM_GUI_FSV_ALV_TREE definition
-  public
-  inheriting from ZCL_FLIFM_GUI
-  create public .
+CLASS zcl_flifm_gui_fsv_alv_tree DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_flifm_gui
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods ZIF_FLIFM_GUI~RENDER
-    redefinition .
-protected section.
-private section.
+    METHODS zif_flifm_gui~render
+        REDEFINITION .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 
-  class-data MO_FSV_ALV_TREE type ref to ZCL_FLIFM_GUI_FSV_ALV_TREE .
-  data MT_LIST_COMMENTARY type SLIS_T_LISTHEADER .
+    CLASS-DATA mo_fsv_alv_tree TYPE REF TO zcl_flifm_gui_fsv_alv_tree .
+    DATA mt_list_commentary TYPE slis_t_listheader .
 
-  methods _INITIALIZE_ALV_TREE
-    raising
-      ZCX_FLIFM_EXCEPTION .
-  methods _BUILD_ALV_TREE_HEADER
-    returning
-      value(RS_ALV_TREE_HEADER) type TREEV_HHDR .
-  methods _BUILD_ALV_TREE_EXCLUDING
-    returning
-      value(RT_EXCLUDING) type UI_FUNCTIONS .
-  methods _BUILD_ALV_TREE_COMMENT .
-  methods _CREATE_ALV_TREE
-    raising
-      ZCX_FLIFM_EXCEPTION .
-  methods _CREATE_FIELDCAT
-    returning
-      value(RT_FCAT) type LVC_T_FCAT
-    raising
-      ZCX_FLIFM_EXCEPTION .
-  methods _CHANGE_TOOLBAR .
-  methods _ADD_BUTTON
-    importing
-      !IO_TOOLBAR type ref to CL_GUI_TOOLBAR
-      !IV_FCODE type UI_FUNC
-      !IV_ICON type C
-      !IV_TEXT type TEXT40 optional
-      !IV_TYPE type TB_BTYPE
-      value(IV_QUICKINFO) type ICONQUICK optional .
-  methods _REGISTER_EVENTS .
-  methods _UPDATE_TREE
-    importing
-      !IT_EXP type LVC_T_NKEY .
-  methods _CALL_ACCOUNT_BALANCE
-    importing
-      !IV_GJAHR type GJAHR
-      !IS_DATA type ANY .
-  methods _ON_TREE_FUNCTION_SELECTED
-    for event FUNCTION_SELECTED of CL_GUI_TOOLBAR
-    importing
-      !FCODE .
-  methods _ON_TREE_NODE_DOUBLE_CLICK
-    for event NODE_DOUBLE_CLICK of CL_GUI_ALV_TREE
-    importing
-      !NODE_KEY
-      !SENDER .
-  methods _ON_TREE_ITEM_DOUBLE_CLICK
-    for event ITEM_DOUBLE_CLICK of CL_GUI_ALV_TREE
-    importing
-      !FIELDNAME
-      !NODE_KEY .
+    METHODS _initialize_alv_tree
+      RAISING
+        zcx_flifm_exception .
+    METHODS _build_alv_tree_header
+      RETURNING
+        VALUE(rs_alv_tree_header) TYPE treev_hhdr .
+    METHODS _build_alv_tree_excluding
+      RETURNING
+        VALUE(rt_excluding) TYPE ui_functions .
+    METHODS _build_alv_tree_comment .
+    METHODS _create_alv_tree
+      RAISING
+        zcx_flifm_exception .
+    METHODS _create_fieldcat
+      RETURNING
+        VALUE(rt_fcat) TYPE lvc_t_fcat
+      RAISING
+        zcx_flifm_exception .
+    METHODS _change_toolbar .
+    METHODS _add_button
+      IMPORTING
+        !io_toolbar         TYPE REF TO cl_gui_toolbar
+        !iv_fcode           TYPE ui_func
+        !iv_icon            TYPE c
+        !iv_text            TYPE text40 OPTIONAL
+        !iv_type            TYPE tb_btype
+        VALUE(iv_quickinfo) TYPE iconquick OPTIONAL .
+    METHODS _register_events .
+    METHODS _update_tree
+      IMPORTING
+        !it_exp TYPE lvc_t_nkey .
+    METHODS _call_account_balance
+      IMPORTING
+        !iv_gjahr TYPE gjahr
+        !is_data  TYPE any .
+    METHODS _on_tree_function_selected
+          FOR EVENT function_selected OF cl_gui_toolbar
+      IMPORTING
+          !fcode .
+    METHODS _on_tree_node_double_click
+          FOR EVENT node_double_click OF cl_gui_alv_tree
+      IMPORTING
+          !node_key
+          !sender .
+    METHODS _on_tree_item_double_click
+          FOR EVENT item_double_click OF cl_gui_alv_tree
+      IMPORTING
+          !fieldname
+          !node_key .
 ENDCLASS.
 
 
@@ -432,6 +432,11 @@ CLASS ZCL_FLIFM_GUI_FSV_ALV_TREE IMPLEMENTATION.
       ENDIF.
 
     ENDLOOP.
+
+    APPEND INITIAL LINE TO rt_fcat ASSIGNING <ls_fieldcat>.
+    <ls_fieldcat>-fieldname = 'NAME'.
+    <ls_fieldcat>-coltext   = |Name|.
+    <ls_fieldcat>-no_out    = abap_true.
 
     APPEND INITIAL LINE TO rt_fcat ASSIGNING <ls_fieldcat>.
     <ls_fieldcat>-fieldname = 'HKONT'.

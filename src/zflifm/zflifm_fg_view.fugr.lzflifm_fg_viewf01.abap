@@ -13,16 +13,16 @@ FORM zflifmv_layout_input.
     zflifmv_layout-versn = ls_setting-versn.
   ENDIF.
 
-  zflifmv_layout-erdat = sy-datlo.
-  zflifmv_layout-erzet = sy-timlo.
+  zflifmv_layout-erdat = sy-datum.
+  zflifmv_layout-erzet = sy-uzeit.
   zflifmv_layout-ernam = sy-uname.
 
 ENDFORM.
 
 FORM zflifmv_tcurr_input.
 
-  zflifmv_tcurr-erdat = sy-datlo.
-  zflifmv_tcurr-erzet = sy-timlo.
+  zflifmv_tcurr-erdat = sy-datum.
+  zflifmv_tcurr-erzet = sy-uzeit.
   zflifmv_tcurr-ernam = sy-uname.
 
 ENDFORM.
