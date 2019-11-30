@@ -65,61 +65,51 @@
        <PARAMETER>VIEW_ACTION</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Aktion mit dem View: anzeigen/ändern (S/U)</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name des Views</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_NUMBER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Korrekturnummer für durchgeführte Änderungen</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DBA_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für den DB-Zugriff</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DPL_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für die Anzeige</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCL_CUA_FUNCT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle mit dynam. zu deaktivierenden CUA-Funkt.</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_HEADER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für den View</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_NAMTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für die View-Felder</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NO_VALUE_FOR_SUBSET_IDENT</PARAMETER>
        <KIND>X</KIND>
        <STEXT>für &apos;SUBSET&apos;-Feld wurde kein Wert vorgegeben</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MISSING_CORR_NUMBER</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Korrekturnummer fehlt</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -176,61 +166,51 @@
        <PARAMETER>VIEW_ACTION</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Aktion mit dem View: anzeigen/ändern (S/U)</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name des Views</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_NUMBER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Korrekturnummer für durchgeführte Änderungen</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DBA_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für den DB-Zugriff</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DPL_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für die Anzeige</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCL_CUA_FUNCT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle mit dynam. zu deaktivierenden CUA-Funkt.</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_HEADER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für den View</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_NAMTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für die View-Felder</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NO_VALUE_FOR_SUBSET_IDENT</PARAMETER>
        <KIND>X</KIND>
        <STEXT>für &apos;SUBSET&apos;-Feld wurde kein Wert vorgegeben</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MISSING_CORR_NUMBER</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Korrekturnummer fehlt</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -316,109 +296,91 @@
        <PARAMETER>FCODE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>gewünschte Funktion des Bausteins</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_ACTION</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Aktion mit dem View: anzeigen/ändern (S/U)</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name des Views</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_NUMBER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Korrekturnummer für durchgeführte Änderungen</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LAST_ACT_ENTRY</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Index der Cursorposition in der Anzeigetabelle</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>UCOMM</PARAMETER>
        <KIND>P</KIND>
        <STEXT>letztes User-command innerhalb der Viewpflege</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>UPDATE_REQUIRED</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Flag: Einträge verändert, Sichern erforderlich</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_KEYTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle mit den Keys der zu transport. Einträge</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DBA_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für den DB-Zugriff</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DPL_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für die Anzeige</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCL_CUA_FUNCT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tab. der nicht zu aktivierenden CUA-Funktionen</STEXT>
-       <INDEX> 011</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXTRACT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tab. der gerade sichtbaren Daten (Anzeigetabelle</STEXT>
-       <INDEX> 012</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>TOTAL</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle, mit allen von der DB gelesenen Daten</STEXT>
-       <INDEX> 013</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_HEADER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für den View</STEXT>
-       <INDEX> 014</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_NAMTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für die View-Felder</STEXT>
-       <INDEX> 015</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NO_VALUE_FOR_SUBSET_IDENT</PARAMETER>
        <KIND>X</KIND>
        <STEXT>für ein &apos;SUBSET&apos;-Feld wurde kein Wert vorgegeben</STEXT>
-       <INDEX> 016</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MISSING_CORR_NUMBER</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Korrekturnummer fehlt</STEXT>
-       <INDEX> 017</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SAVING_CORRECTION_FAILED</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Fehler beim Sichern der Korrektureinträge</STEXT>
-       <INDEX> 018</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -504,109 +466,91 @@
        <PARAMETER>FCODE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>gewünschte Funktion des Bausteins</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_ACTION</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Aktion mit dem View: anzeigen/ändern (S/U)</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>VIEW_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name des Views</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_NUMBER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Korrekturnummer für durchgeführte Änderungen</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LAST_ACT_ENTRY</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Index der Cursorposition in der Anzeigetabelle</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>UCOMM</PARAMETER>
        <KIND>P</KIND>
        <STEXT>letztes User-command innerhalb der Viewpflege</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>UPDATE_REQUIRED</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Flag: Einträge verändert, Sichern erforderlich</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CORR_KEYTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle mit den Keys der zu transport. Einträge</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DBA_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für den DB-Zugriff</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DPL_SELLIST</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Selektionsbedingungen für die Anzeige</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCL_CUA_FUNCT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tab. der nicht zu aktivierenden CUA-Funktionen</STEXT>
-       <INDEX> 011</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXTRACT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tab. der gerade sichtbaren Daten (Anzeigetabelle</STEXT>
-       <INDEX> 012</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>TOTAL</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Tabelle, mit allen von der DB gelesenen Daten</STEXT>
-       <INDEX> 013</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_HEADER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für den View</STEXT>
-       <INDEX> 014</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>X_NAMTAB</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Kontrollblocktabelle für die View-Felder</STEXT>
-       <INDEX> 015</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NO_VALUE_FOR_SUBSET_IDENT</PARAMETER>
        <KIND>X</KIND>
        <STEXT>für ein &apos;SUBSET&apos;-Feld wurde kein Wert vorgegeben</STEXT>
-       <INDEX> 016</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MISSING_CORR_NUMBER</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Korrekturnummer fehlt</STEXT>
-       <INDEX> 017</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SAVING_CORRECTION_FAILED</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Fehler beim Sichern der Korrektureinträge</STEXT>
-       <INDEX> 018</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -864,7 +808,6 @@
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
        <PARAM_ID>BIL</PARAM_ID>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -882,7 +825,6 @@
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
@@ -900,7 +842,6 @@
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
@@ -918,7 +859,6 @@
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
@@ -936,7 +876,6 @@
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -954,7 +893,6 @@
        <FORMAT>DATS</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -972,7 +910,6 @@
        <FORMAT>TIMS</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -1385,7 +1322,6 @@
        <MODIFIC>X</MODIFIC>
        <CONV_EXIT>GJAHR</CONV_EXIT>
        <PARAM_ID>GJR</PARAM_ID>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -1404,7 +1340,6 @@
        <FORMAT>NUMC</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -1462,7 +1397,6 @@
        <FORMAT>DEC</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
@@ -1480,7 +1414,6 @@
        <FORMAT>DEC</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
@@ -1498,7 +1431,6 @@
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -1516,7 +1448,6 @@
        <FORMAT>DATS</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -1534,7 +1465,6 @@
        <FORMAT>TIMS</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>X</MODIFIC>
-       <FOREIGNKEY>X</FOREIGNKEY>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>

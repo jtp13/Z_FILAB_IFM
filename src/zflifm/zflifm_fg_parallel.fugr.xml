@@ -47,31 +47,26 @@
        <PARAMETER>I_RYEAR</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Fiscal Year</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>I_RBUKRS</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Company Code</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IR_BUKRS</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Table Type for Range for Company Code</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IR_GJAHR</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Range for Fiscal Years</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_DATA</PARAMETER>
        <KIND>P</KIND>
        <STEXT>FI LAB. IFM General Ledger TOTAL</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

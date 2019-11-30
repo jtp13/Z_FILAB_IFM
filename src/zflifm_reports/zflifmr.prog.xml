@@ -4,8 +4,6 @@
   <asx:values>
    <PROGDIR>
     <NAME>ZFLIFMR</NAME>
-    <STATE>A</STATE>
-    <VARCL>X</VARCL>
     <SUBC>1</SUBC>
     <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
@@ -82,6 +80,16 @@
      </RSMPE_STAT>
     </STA>
     <FUN>
+     <RSMPE_FUNT>
+      <CODE>AWS_QS</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_TRANSFER</TEXT_NAME>
+      <ICON_ID>@KB@</ICON_ID>
+      <FUN_TEXT>AWS QuickSight</FUN_TEXT>
+      <ICON_TEXT>AWS QuickSight</ICON_TEXT>
+      <INFO_TEXT>Transfer data to QuickSight</INFO_TEXT>
+     </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>BACK</CODE>
       <TEXTNO>001</TEXTNO>
@@ -179,12 +187,24 @@
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>04</NO>
-      <PFNO>27</PFNO>
+      <PFNO>29</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>05</NO>
+      <PFNO>S</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000001</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>06</NO>
+      <PFNO>27</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000001</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>07</NO>
       <PFNO>28</PFNO>
      </RSMPE_BUT>
     </BUT>
@@ -232,6 +252,12 @@
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
+      <CODE>000001</CODE>
+      <PFNO>29</PFNO>
+      <FUNCODE>AWS_QS</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
       <CODE>000002</CODE>
       <PFNO>03</PFNO>
       <FUNCODE>BACK</FUNCODE>
@@ -251,6 +277,10 @@
      </RSMPE_PFK>
     </PFK>
     <SET>
+     <RSMPE_STAF>
+      <STATUS>STATUS_0100</STATUS>
+      <FUNCTION>AWS_QS</FUNCTION>
+     </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>STATUS_0100</STATUS>
       <FUNCTION>BACK</FUNCTION>

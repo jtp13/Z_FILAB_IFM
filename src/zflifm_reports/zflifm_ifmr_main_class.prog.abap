@@ -94,7 +94,6 @@ CLASS zcl_flifm_main IMPLEMENTATION.
 
   ENDMETHOD.
 
-
   METHOD pai.
 
     DATA: lv_rc TYPE i.
@@ -118,10 +117,7 @@ CLASS zcl_flifm_main IMPLEMENTATION.
 
     IF ms_main_data-re_render = abap_true.
 
-      set_exclude(
-        EXPORTING
-          iv_fcode = ''
-        CHANGING ct_ex = lt_ex ).
+      lt_ex = get_exclude( ).
       ls_title = set_title( ).
 
       SET PF-STATUS 'STATUS_0100' EXCLUDING lt_ex .
@@ -316,22 +312,22 @@ CLASS zcl_flifm_main IMPLEMENTATION.
     IF mo_docking_container_right IS NOT BOUND.
 
 *// Right Tree ALV
-    CREATE OBJECT mo_docking_container_right
-      EXPORTING
-        dynnr     = sy-dynnr
-        repid     = sy-repid
-        side      = mo_docking_container_right->dock_at_left
-        style     = cl_gui_control=>ws_child
-        extension = 3000.
+      CREATE OBJECT mo_docking_container_right
+        EXPORTING
+          dynnr     = sy-dynnr
+          repid     = sy-repid
+          side      = mo_docking_container_right->dock_at_left
+          style     = cl_gui_control=>ws_child
+          extension = 3000.
 
-    CREATE OBJECT mo_splitter_right
-      EXPORTING
-        parent  = mo_docking_container_right
-        rows    = 1
-        columns = 1.
+      CREATE OBJECT mo_splitter_right
+        EXPORTING
+          parent  = mo_docking_container_right
+          rows    = 1
+          columns = 1.
 
-    mo_splitter_right->set_border( border = cl_gui_cfw=>false ).
-    mo_splitter_right->set_column_mode( mode = mo_splitter_right->mode_absolute ).
+      mo_splitter_right->set_border( border = cl_gui_cfw=>false ).
+      mo_splitter_right->set_column_mode( mode = mo_splitter_right->mode_absolute ).
 
     ENDIF.
 
@@ -556,6 +552,21 @@ CLASS zcl_flifm_main IMPLEMENTATION.
 
             ms_main_data-route = ls_menu-route. "zif_flifm_definitions=>c_routes-gui_fsv_alv_tree.
             ms_main_data-action    = iv_ucomm.
+
+          WHEN 'AWS_QS'.
+            DATA lo_addon TYPE REF TO object.
+            DATA lv_addon_class TYPE seoclsname VALUE 'ZCL_FLIFM_AWS_QUICKSIGHT'.
+
+            TRY.
+                CREATE OBJECT lo_addon TYPE (lv_addon_class).
+              CATCH cx_sy_create_object_error.
+                zcx_flifm_exception=>raise_msg( |Not add-on AWS QuickSight.| ).
+            ENDTRY.
+
+            CALL METHOD lo_addon->('TRANSFER_TO_AWS_QUICKSIGHT')
+              EXPORTING
+                company = ms_main_data-company
+                action  = ms_main_data-action.
 
           WHEN zif_flifm_definitions=>c_action-go_filab OR
                zif_flifm_definitions=>c_action-go_help.

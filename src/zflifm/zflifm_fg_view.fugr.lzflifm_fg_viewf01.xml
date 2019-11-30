@@ -4,9 +4,7 @@
   <asx:values>
    <PROGDIR>
     <NAME>LZFLIFM_FG_VIEWF01</NAME>
-    <STATE>A</STATE>
     <SQLX>X</SQLX>
-    <VARCL>X</VARCL>
     <SUBC>I</SUBC>
     <APPL>S</APPL>
     <RLOAD>E</RLOAD>

@@ -51,6 +51,10 @@ CLASS zcl_flifm_screen DEFINITION
     DATA mo_fetch TYPE REF TO zcl_flifm_fetch .
     DATA mo_router TYPE REF TO zif_flifm_router .
 
+    METHODS get_exclude
+      RETURNING
+        VALUE(rt_ex) TYPE status_excl_fcode_tt .
+
     METHODS set_exclude
       IMPORTING
         !iv_fcode TYPE fcode
@@ -81,10 +85,25 @@ CLASS zcl_flifm_screen IMPLEMENTATION.
 
   ENDMETHOD.
 
+  METHOD get_exclude.
+
+*// Change later...
+    SELECT COUNT( * ) UP TO 1 ROWS
+      FROM seoclass
+      WHERE clsname = 'ZCL_FLIFM_AWS_QUICKSIGHT'.
+
+    IF sy-subrc <> 0.
+      set_exclude( EXPORTING
+                    iv_fcode = 'AWS_QS'
+                   CHANGING
+                     ct_ex = rt_ex ).
+    ENDIF.
+
+  ENDMETHOD.
+
   METHOD set_exclude.
 
-    DATA: lv_ex TYPE fcode.
-    APPEND lv_ex TO ct_ex.
+    APPEND iv_fcode TO ct_ex.
 
   ENDMETHOD.
 
